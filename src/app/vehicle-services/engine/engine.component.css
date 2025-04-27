@@ -1,0 +1,51 @@
+.engine-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .engine-text {
+    flex: 1;
+    min-width: 300px;
+    color: #1e293b; /* Your theme color */
+  }
+  
+  .engine-text h2 {
+    color: #0f172a;
+    margin-bottom: 1rem;
+  }
+  
+  .engine-text p {
+    line-height: 1.6;
+    font-size: 1.1rem;
+  }
+  
+  .engine-image {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .engine-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  }
+  .register-btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 10px 20px;
+    background-color: #e21231; /* dark blue or your theme color */
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+  }
+  
+  .register-btn:hover {
+    background-color: #540e19; /* slightly lighter shade for hover */
+  }
+  

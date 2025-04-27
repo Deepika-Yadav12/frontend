@@ -1,0 +1,55 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+    <div>
+      <label>Username:</label>
+      <input formControlName="Username" />
+      <div *ngIf="registerForm.get('Username')?.invalid && registerForm.get('Username')?.touched">
+        <small>Name is required and should be at least 3 characters long.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label>Email:</label>
+      <input formControlName="Email" type="email" />
+      <div *ngIf="registerForm.get('Email')?.invalid && registerForm.get('Email')?.touched">
+        <small>Enter a valid email address.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label>Phone Number:</label>
+      <input formControlName="Mobile" type="tel" pattern="[0-9]{10}" />
+      <div *ngIf="registerForm.get('Mobile')?.invalid && registerForm.get('Mobile')?.touched">
+        <small>Phone number should be 10 digits.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label>Password:</label>
+      <input [type]="showPassword ? 'text' : 'password'" formControlName="Password" />
+      <div *ngIf="registerForm.get('Password')?.invalid && registerForm.get('Password')?.touched">
+        <small>Password is required and should be at least 6 characters long.</small>
+      </div>
+    </div>
+  
+    <!-- Optional fields -->
+    <!--
+    <div>
+      <label>Confirm Password:</label>
+      <input [type]="showPassword ? 'text' : 'password'" formControlName="confirmPassword" />
+    </div>
+  
+    <div>
+      <label>Gender:</label>
+      <label><input type="radio" value="Male" formControlName="gender" /> Male</label>
+      <label><input type="radio" value="Female" formControlName="gender" /> Female</label>
+    </div>
+  
+    <div>
+      <label>Date of Birth:</label>
+      <input type="date" formControlName="dob" />
+    </div>
+    -->
+  
+    <button type="submit" [disabled]="registerForm.invalid">Register</button>
+  </form>
+  

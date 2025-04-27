@@ -1,0 +1,133 @@
+<div class="carousel">
+    <div class="slides" [style.transform]="'translateX(-' + currentSlide * 100 + '%)'">
+      <div class="slide">
+        <img src="assets/image5.jpeg" alt="Slide 1" />
+        <div class="overlay-text">Your car deserves the best care, because it takes care of you.</div>
+      </div>
+      <div class="slide">
+        <img src="assets/image2.jpg" alt="Slide 2" />
+        <div class="overlay-text">The better the maintenance, the longer the journey</div>
+      </div>
+      <div class="slide">
+        <img src="assets/image3.jpeg" alt="Slide 3" />
+        <div class="overlay-text">Trust us with your vehicle and we’ll ensure you travel worry-free</div>
+      </div>
+    </div>
+  
+    <div class="controls">
+      <button (click)="prevSlide()">❮</button>
+      <button (click)="nextSlide()">❯</button>
+    </div>
+  
+    <div class="indicators">
+      <span *ngFor="let i of [0, 1, 2]; let idx = index"
+            [class.active]="currentSlide === idx"
+            (click)="currentSlide = idx"></span>
+    </div>
+  </div>
+  
+  <div class="services-row">
+    <div class="service-card">
+      <img src="assets/brake.png" alt="Brake">
+      <h3>Brakes</h3>
+      <h5>Our team handles individual brake components for safe and smooth stops.</h5>
+    </div>
+    <div class="service-card">
+      <img src="assets/suspension.png" alt="Suspension">
+      <h3>Suspension</h3>
+      <h5>Suspension services to ensure a smooth ride over all road conditions</h5>
+    </div>
+    <div class="service-card">
+      <img src="assets/dent.png" alt="Dent">
+      <h3>Dent</h3>
+      <h5>Get expert dent removal and professional painting services for all car models.</h5>
+    </div>
+    <div class="service-card">
+      <img src="assets/details.png" alt="Details">
+      <h3>Details</h3>
+      <h5>Affordable interior cleaning, polishing, and restoration to bring back your car’s shine.</h5>
+    </div>
+    <div class="service-card">
+      <img src="assets/diagnostic-tool.png" alt="Diagnostics">
+      <h3>Diagnostics</h3>
+      <h5>We offer mobile diagnostic checks at your convenience — at home or office.</h5>
+    </div>
+  </div>
+  
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1>Get A Fair Quote Along With Free<br>Doorstep Pick-up & Drop Facility</h1>
+      <p>Whether you’re the driver of your own car or a rental, you’re covered 24/7, 365 days a year</p><br><br><br>
+
+      <button routerLink="/user-registration" class="hero-btn">
+        Register To WrenchWise
+      </button>
+    </div>
+  </section>
+
+  <div class="faq-section container">
+    <h2 class="fw-bold mb-4">WrenchWise FAQs</h2>
+  
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item" *ngFor="let faq of faqs; let i = index">
+        <h2 class="accordion-header" [id]="'heading' + i">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  [attr.data-bs-target]="'#collapse' + i" aria-expanded="false"
+                  [attr.aria-controls]="'collapse' + i">
+            {{ faq.question }}
+          </button>
+        </h2>
+        <div [id]="'collapse' + i" class="accordion-collapse collapse"
+             [attr.aria-labelledby]="'heading' + i" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            {{ faq.answer }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <section class="how-it-works text-white text-center py-5">
+    <h1 class="fw-bold mb-2">How It Works</h1>
+    <p class="mb-5">We Offer Full Service Auto Repair & Maintenance</p>
+  
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-12 mb-4" *ngFor="let step of steps">
+          <div class="step-card p-4 h-100">
+            <h1 class="display-3 fw-bold">{{ step.number }}</h1>
+            <h5 class="mt-3">{{ step.title }}</h5>
+            <p class="text-light small">{{ step.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <section class="brands-section">
+    <h1>Brands We Serve</h1>
+    <div class="brands-logos">
+      <img src="assets/audi.png" alt="Audi">
+      <img src="assets/hyundai.jpg" alt="Hyundai">
+      <img src="assets/bmw.png" alt="BMW">
+      <img src="assets/honda.jpg" alt="Honda">
+      <img src="assets/LandRover.png" alt="Land Rover">
+      <img src="assets/toyota.jpg" alt="Toyota">
+      <img src="assets/nissan.jpg" alt="Nissan">
+      <img src="assets/mercedes.jpg" alt="Nissan">
+
+      <!-- //duplicated -->
+
+      <img src="assets/audi.png" alt="Audi">
+      <img src="assets/hyundai.jpg" alt="Hyundai">
+      <img src="assets/bmw.png" alt="BMW">
+      <img src="assets/honda.jpg" alt="Honda">
+      <img src="assets/LandRover.png" alt="Land Rover">
+      <img src="assets/toyota.jpg" alt="Toyota">
+      <img src="assets/nissan.jpg" alt="Nissan">
+      <img src="assets/mercedes.jpg" alt="Mercedes">
+    </div>
+  </section>
+  
+  

@@ -1,0 +1,31 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-end mb-3">
+    <button class="btn btn-primary" routerLink="/admin/add-technician">Add Technician</button>
+  </div>
+
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Specialization</th>
+          <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tech of technicians">
+        <td>{{ tech.id }}</td>
+        <td>{{ tech.name }}</td>
+        <td>{{ tech.email }}</td>
+        <td>{{ tech.phone }}</td>
+        <td>{{ tech.specialization }}</td>
+        <td>
+          <button class="btn btn-edit me-2" (click)="onEdit(tech)">Edit</button>
+          <button class="btn btn-delete" (click)="onDelete(tech)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,69 @@
+/* === Footer Layout === */
+footer.main-footer {
+  background-color: #123458;
+  color: white;
+  padding: 20px 50px;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left {
+  flex: 1;
+}
+
+.footer-logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #F1EFEC;
+}
+
+footer p {
+  font-size: 14px;
+}
+
+.footer-right ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.footer-right li {
+  margin-bottom: 0;
+}
+
+.footer-right a {
+  color: #F1EFEC;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.footer-right a:hover {
+  text-decoration: underline;
+}
+.footer-right ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.footer-right a i {
+  font-size: 20px;
+  color: #F1EFEC;
+  transition: color 0.3s;
+}
+
+.footer-right a i:hover {
+  color: #D4C9BE;
+}

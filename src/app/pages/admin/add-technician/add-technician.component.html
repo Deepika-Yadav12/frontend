@@ -1,0 +1,24 @@
+<div class="form-container container mt-5">
+  <h3 class="mb-4 text-center">Add Technician</h3>
+  <form (ngSubmit)="onSubmit()" #technicianForm="ngForm">
+    <div class="mb-3">
+      <label for="name" class="form-label">Full Name</label>
+      <input type="text" id="name" class="form-control" [(ngModel)]="name" name="name" required>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email Address</label>
+      <input type="email" id="email" class="form-control" [(ngModel)]="email" name="email" required>
+    </div>
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone Number</label>
+      <input type="tel" id="phone" class="form-control" [(ngModel)]="phone" name="phone" required>
+    </div>
+    <div class="mb-3">
+      <label for="specialization" class="form-label">Specialization</label>
+      <input type="text" id="specialization" class="form-control" [(ngModel)]="specialization" name="specialization" required>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-success px-4">Submit</button>
+    </div>
+  </form>
+</div>
