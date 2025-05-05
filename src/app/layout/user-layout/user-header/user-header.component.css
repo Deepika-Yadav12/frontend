@@ -1,0 +1,67 @@
+/* Header */
+.user-header {
+    background-color: #123458; /* Dark blue background */
+    color: #F1EFEC; /* Light text color */
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+  }
+  
+  .user-header .logo a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #F1EFEC; /* Light logo color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .user-header .logo a:hover {
+    color: #AE445A; /* Pink color on hover */
+  }
+  
+  .user-header .user-nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-header .logout-btn {
+    background-color: #AE445A; /* Pink color */
+    color: #fff;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 2rem;
+  }
+  
+  .user-header .logout-btn:hover {
+    background-color: #123458; /* Dark blue on hover */
+    color: #F1EFEC;
+  }
+  
+  /* Mobile-responsive tweaks for Header */
+  @media screen and (max-width: 768px) {
+    .user-header {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1rem;
+    }
+  
+    .user-header .user-nav {
+      margin-top: 1rem;
+    }
+  
+    .user-header .logout-btn {
+      margin-left: 0;
+      padding: 0.75rem 1rem;
+    }
+  }
+  

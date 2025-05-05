@@ -1,9 +1,8 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './pages/admin/admin.component';
 import { UserComponent } from './pages/user/user.component';
 import { TechnicianComponent } from './pages/technician/technician.component';
-import { LayoutComponent } from './outer-layout/layout/layout.component';
 import { LoginComponent } from './pages/outer/login/login.component';
 import { HomeComponent } from './pages/outer/home/home.component';
 import { AdminLoginComponent } from './pages/outer/admin-login/admin-login.component';
@@ -20,23 +19,26 @@ import { AddTechnicianComponent } from './pages/admin/add-technician/add-technic
 import { EditTechnicianComponent } from './pages/admin/edit-technician/edit-technician.component';
 import { UserRequestsComponent } from './pages/admin/user-requests/user-requests.component';
 import { UserRegisterComponent } from './pages/admin/user-register/user-register.component';
+import { OuterLayoutComponent } from './layout/outer-layout/outer-layout.component';
+import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
+import { UserLayoutComponent } from './layout/user-layout/user-layout.component';
+import { UserProfileComponent } from './pages/user/user-profile/user-profile.component';
+import { UserHomeComponent } from './pages/user/user-home/user-home.component';
+
 const routes: Routes = [
+
   {
-    path: '', component: LayoutComponent,
+    path: '', component: OuterLayoutComponent,
     children: [
-      { path: 'admin', component: AdminComponent },
+      // { path: 'admin', component: AdminComponent },
       { path: 'user-login', component: LoginComponent },
       { path: 'admin-login', component: AdminLoginComponent },
       { path: 'technician', component: TechnicianComponent },
       { path: 'technician-login', component: TechnicianLoginComponent },
-      {path: 'user-register', component:UserRegisterComponent},
+      { path: 'user-register', component: UserRegisterComponent },
       { path: 'user', component: UserComponent },
       { path: 'home', component: HomeComponent },
       { path: 'about', component: AboutComponent },
-      { path: 'admin/technicians-info', component: TechniciansInfoComponent },
-      { path: 'admin/add-technician', component: AddTechnicianComponent },
-      { path: 'admin/edit-technician/:id', component: EditTechnicianComponent },
-      { path: 'admin/user-requests', component: UserRequestsComponent },
       { path: 'vehicle-services/engine', component: EngineComponent },
       { path: 'vehicle-services/gearbox', component: GearboxComponent },
       { path: 'vehicle-services/clutch', component: ClutchComponent },
@@ -44,8 +46,26 @@ const routes: Routes = [
       { path: 'vehicle-services/brake-pad-replacement', component: BrakePadReplacementComponent },
       { path: 'vehicle-services/brake-fluid', component: BrakeFluidComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' }
+
     ]
-  }
+  },
+  {
+    path: 'admin', component: AdminLayoutComponent,
+    children: [
+      { path: 'technicians-info', component: TechniciansInfoComponent },
+      { path: 'add-technician', component: AddTechnicianComponent },
+      { path: 'edit-technician/:id', component: EditTechnicianComponent },
+      { path: 'user-requests', component: UserRequestsComponent },
+    ]
+  },
+  {
+    path: 'user',
+    component: UserLayoutComponent,
+    children: [
+      { path: '', component: UserHomeComponent },
+      { path: 'user-profile', component: UserProfileComponent }
+    ]
+  },
 ];
 
 @NgModule({

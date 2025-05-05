@@ -1,0 +1,92 @@
+<header class="main-header">
+    <div class="brand-name">WrenchWise</div>
+  
+    <nav class="nav-left">
+      <ul class="nav-links">
+        <li><a routerLink="/home" routerLinkActive="active-link">Home</a></li>
+        <li><a routerLink="/about" routerLinkActive="active-link">About</a></li>
+  
+        <!-- Services Dropdown -->
+        <li class="services-dropdown">
+          <button class="services-btn">Services</button>
+          <div class="services-dropdown-content">
+            
+            <!-- Engine -->
+            <div class="sub-dropdown">
+              <a>Engine & Transmisson</a>
+              <div class="sub-dropdown-content">
+                <a routerLink="/vehicle/engine" routerLinkActive="active-link">Engine</a>
+                <a routerLink="/vehicle/gearbox">Gearbox Service</a>
+                <a routerLink="/vehicle/clutch">Clutch</a>
+                <a routerLink="/vehicle/suspension">Suspension</a>
+              </div>
+            </div>
+  
+            <!-- Brakes -->
+            <div class="sub-dropdown">
+              <a>Brakes & Control System</a>
+              
+              <div class="sub-dropdown-content">
+                <a routerLink="/brake-pad-replacement">Brake Pad Replacement</a>
+  
+                <a routerLink="/brake-fluid">Brake Fluid</a>
+              </div>
+            </div>
+  
+            <!-- Fuel System -->
+            <div class="sub-dropdown">
+              <a>Fuel & Exhaust System</a>
+              <div class="sub-dropdown-content">
+                <a>Fuel System</a>
+                <a>Exhaust</a>
+              </div>
+            </div>
+  
+            <!-- Electrical Wiring -->
+            <div class="sub-dropdown">
+              <a>Electrical & Lighting</a>
+              <div class="sub-dropdown-content">
+                <a>Battery</a>
+                <a>Headlight</a>
+                <a>Electrical Wiring</a>
+                <a>Power Windows</a>
+                <a>AC</a>
+              </div>
+            </div>
+  
+            <!-- Outer Body -->
+            <div class="sub-dropdown">
+              <a>Outer Body</a>
+              <div class="sub-dropdown-content">
+                <a>Wind Shield</a>
+                <a>Mirrors</a>
+                <a>Tires</a>
+                <a>Radiator</a>
+                <a>Dent Removal</a>
+              </div>
+            </div>
+            
+          </div>
+        </li>
+      </ul>
+    </nav>
+  
+    <!-- Login on the Right -->
+    <ul class="nav-right">
+  
+      <li class="register-btn-wrapper">
+        <a routerLink="/user-register" class="register-btn">Register</a>
+  
+      </li>
+  
+      <li class="login-dropdown">
+        <button class="login-btn">Login</button>
+        <div class="login-dropdown-content">
+          <a routerLink="/admin-login" routerLinkActive="active-link">Admin</a>
+          <a routerLink="/user-login" routerLinkActive="active-link">User</a>
+          <a routerLink="/technician-login" routerLinkActive="active-link">Technician</a>
+        </div>
+      </li>
+    </ul>
+  </header>
+  

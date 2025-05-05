@@ -1,19 +1,31 @@
-<div class="dashboard-wrapper">
-  <app-user-sidebar></app-user-sidebar>
+<div class="user-dashboard-layout">
+  <!-- Header -->
+  <header class="user-header">
+    <app-user-header></app-user-header>
+  </header>
 
-  <div class="main-content">
-    <h2 style="color: #123458;">Welcome to Your Dashboard</h2>
+  <!-- Main Area: Sidebar + Content -->
+  <div class="user-main-area">
+    <aside class="user-sidebar">
+      <app-user-sidebar></app-user-sidebar>
+    </aside>
 
-    <div class="dashboard-cards">
-      <div class="card">Service Requests Over Time<br><b>20</b></div>
-      <div class="card">Upcoming Service Appointments<br><b>3</b></div>
-      <div class="card">Total Amount Paid<br><b>$500</b></div>
-      <div class="card">Top 5 Repaired Vehicles (by Model)<br><b>1</b></div>
-    </div>
+    <main class="user-content">
+      <h2>Welcome to Your Dashboard!</h2>
 
-    <div class="chart-container">
-      <!-- chart goes here -->
-    </div>
+      <div class="user-dashboard-cards">
+        <div class="user-card">Service Requests Over Time<br><b>20</b></div>
+        <div class="user-card">Upcoming Service Appointments<br><b>5</b></div>
+        <div class="user-card">Recent Repair History<br><b>3</b></div>
+        <div class="user-card">Account Balance<br><b>$150</b></div>
+      </div>
+
+      <router-outlet></router-outlet>
+    </main>
   </div>
 
-  
+  <!-- Footer -->
+  <footer class="user-footer">
+    <app-user-footer></app-user-footer>
+  </footer>
+</div>

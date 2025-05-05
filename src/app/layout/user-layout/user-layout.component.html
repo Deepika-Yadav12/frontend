@@ -1,0 +1,20 @@
+<div class="user-dashboard-layout">
+    <header class="user-header">
+      <app-user-header></app-user-header>
+    </header>
+  
+    <div class="user-main-area">
+      <aside class="user-sidebar">
+        <app-user-sidebar></app-user-sidebar>
+      </aside>
+  
+      <main class="user-content">
+        <router-outlet></router-outlet> <!-- Replaced by dashboard or form -->
+      </main>
+    </div>
+  
+    <footer class="user-footer">
+      <app-user-footer></app-user-footer>
+    </footer>
+  </div>
+  

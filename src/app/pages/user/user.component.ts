@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-user',
@@ -7,24 +8,20 @@ import { Router } from '@angular/router';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent {
 
-  constructor(private router: Router) {}
 
-  goToProfile() {
-    this.router.navigate(['/profile']);
-  }
+export class UserComponent implements OnInit {
 
-  goToServiceRequests() {
-    this.router.navigate(['/service-requests']);
-  }
+  isProfilePage: boolean = false;
 
-  goToPaymentHistory() {
-    
-    this.router.navigate(['/payment-history']);
+  constructor(private router: Router, private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    // Listen to route changes and check if the current route is 'user-profile'
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.isProfilePage = this.router.url.includes('user-profile');
+      });
   }
 }
-
-
-
-

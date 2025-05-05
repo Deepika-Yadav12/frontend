@@ -1,0 +1,31 @@
+.user-dashboard-layout {
+    display: flex;
+    flex-direction: column;
+    /* height: 100vh; */
+  }
+  
+  .user-main-area {
+    display: flex;
+    flex: 1;
+    /* padding: 20px; */
+  }
+  
+  .user-sidebar {
+    width: 250px;
+    background-color: #f4f4f4;
+  }
+  
+  .user-content {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .user-header, .user-footer {
+    background-color: #123458;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  

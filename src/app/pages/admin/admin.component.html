@@ -1,18 +1,35 @@
-<div class="dashboard-wrapper">
-  <app-sidebar></app-sidebar>
+<div class="dashboard-layout">
+  <!-- Header -->
+  <header class="header">
+    <app-admin-header></app-admin-header>
+  </header>
 
-  <div class="main-content">
-    <h2 style="color: #123458;">Welcome to the Admin Dashboard</h2>
+  <!-- Main Area: Sidebar + Content -->
+  <div class="main-area">
+    <aside class="sidebar">
+      <app-admin-sidebar></app-admin-sidebar>
+    </aside>
 
-    <div class="dashboard-cards">
-      <div class="card">Service Requests Over Time<br><b>20</b></div>
-      <div class="card">Technician Workload Distribution<br><b></b></div>
-      <div class="card">Monthly Revenue from Services<br><b></b></div>
-      <div class="card">Top 5 Repaired Vehicles (by Model)<br><b>1</b></div>
-    </div>
+    <main class="content">
+      <h2 style="color: #123458;">Welcome to the Admin Dashboard</h2>
 
-    <div class="chart-container">
-      <!-- chart goes here -->
-    </div>
+      <div class="dashboard-cards">
+        <div class="card">Service Requests Over Time<br><b>20</b></div>
+        <div class="card">Technician Workload Distribution<br><b></b></div>
+        <div class="card">Monthly Revenue from Services<br><b></b></div>
+        <div class="card">Top 5 Repaired Vehicles (by Model)<br><b>1</b></div>
+      </div>
+
+      <router-outlet></router-outlet>
+
+      <div class="chart-container">
+        <!-- chart goes here -->
+      </div>
+    </main>
   </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <app-admin-footer></app-admin-footer>
+  </footer>
 </div>

@@ -6,25 +6,37 @@
   <table class="table table-bordered table-striped">
     <thead class="table-dark">
       <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Specialization</th>
-          <th>Actions</th>
+        <!-- <th>ID</th> -->
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Specialization</th>
+        <th>Address</th>
+        <th>Experience (Years)</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let tech of technicians">
-        <td>{{ tech.id }}</td>
-        <td>{{ tech.name }}</td>
+        <!-- <td>{{ tech.id }}</td> -->
+        <td>{{ tech.username }}</td>
         <td>{{ tech.email }}</td>
-        <td>{{ tech.phone }}</td>
+        <td>{{ tech.mobile }}</td>
         <td>{{ tech.specialization }}</td>
-        <td>
-          <button class="btn btn-edit me-2" (click)="onEdit(tech)">Edit</button>
-          <button class="btn btn-delete" (click)="onDelete(tech)">Delete</button>
-        </td>
+        <td>{{ tech.address }}</td>
+        <td>{{ tech.experienceYears }}</td>
+      
+      
+          <td class="action-buttons">
+            <button class="action-btn edit" (click)="onEdit(tech)">
+              <i class="fas fa-edit"></i> Edit
+            </button>
+            <button class="action-btn delete" (click)="onDelete(tech)">
+              <i class="fas fa-trash-alt"></i> Delete
+            </button>
+          </td>
+          
+      
       </tr>
     </tbody>
   </table>

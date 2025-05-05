@@ -1,0 +1,12 @@
+.admin-footer {
+    background-color: #432E54;
+    color: #E8BCB9;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
+    left: 0;
+  }
+  

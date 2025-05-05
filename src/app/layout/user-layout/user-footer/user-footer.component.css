@@ -1,0 +1,33 @@
+/* Footer */
+.footer {
+    background-color: #123458; /* Dark blue background */
+    color: #F1EFEC; /* Light text color */
+    text-align: center;
+    padding: 1rem 0;
+    /* position: fixed;  */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+/* Mobile-responsive tweaks for Header */
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    .header .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* Mobile-responsive tweaks for Footer */
+@media screen and (max-width: 768px) {
+    .footer {
+        padding: 1rem;
+    }
+}

@@ -1,17 +1,7 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-add-technician',
-//   standalone: false,
-//   templateUrl: './add-technician.component.html',
-//   styleUrl: './add-technician.component.css'
-// })
-// export class AddTechnicianComponent {
-
-// }
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TechnicianService } from '../../../services/technician.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-technician',
@@ -20,24 +10,45 @@ import { TechnicianService } from '../../../services/technician.service';
   styleUrls: ['./add-technician.component.css']
 })
 export class AddTechnicianComponent {
-  name = '';
-  email = '';
-  phone = '';
-  specialization = '';
+  technician = {
+    Name: '',
+    Password: '',
+    Email: '',
+    Mobile: '',
+    Specialization: '',
+    Address: '',
+    ExperienceYears: 0
+  };
+
+  specializations: string[] = [
+    'Engine Repair',
+    'Transmission',
+    'Electrical Systems',
+    'Body Work',
+    'Brake Systems',
+    'Suspension & Steering',
+    'AC & Heating',
+    'Diagnostics'
+  ];
 
   constructor(private technicianService: TechnicianService, private router: Router) {}
 
-  onSubmit() {
-    const newTechnician = {
-      id :Date.now(),
-      name: this.name,
-      email: this.email,
-      phone: this.phone,
-      specialization: this.specialization
-    };
+  onSubmit(): void {
+    const { Name, Email, Mobile, Specialization, Password, Address, ExperienceYears } = this.technician;
 
-    this.technicianService.addTechnician(newTechnician);
-    this.router.navigate(['/admin/technicians-info']); // redirect after adding
+    if (Name && Email && Mobile && Specialization && Password && Address && ExperienceYears >= 0) {
+      this.technicianService.addTechnician(this.technician).subscribe({
+        next: () => {
+          Swal.fire('Success', 'Technician added successfully.', 'success');
+          this.router.navigate(['/admin/technicians-info']);
+        },
+        error: (err) => {
+          console.error('Error adding technician:', err);
+          Swal.fire('Error', 'Failed to add technician.', 'error');
+        }
+      });
+    } else {
+      Swal.fire('Validation Error', 'Please fill all required fields.', 'warning');
+    }
   }
 }
-

@@ -1,24 +1,43 @@
-<div class="form-container container mt-5">
-  <h3 class="mb-4 text-center">Add Technician</h3>
-  <form (ngSubmit)="onSubmit()" #technicianForm="ngForm">
-    <div class="mb-3">
-      <label for="name" class="form-label">Full Name</label>
-      <input type="text" id="name" class="form-control" [(ngModel)]="name" name="name" required>
+<div class="add-tech-form">
+  <h2>Add New Technician</h2>
+  <form (ngSubmit)="onSubmit()" #techForm="ngForm">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input id="name" name="name" type="text" [(ngModel)]="technician.Name" required class="form-control" />
     </div>
-    <div class="mb-3">
-      <label for="email" class="form-label">Email Address</label>
-      <input type="email" id="email" class="form-control" [(ngModel)]="email" name="email" required>
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input id="password" name="password" type="password" [(ngModel)]="technician.Password" required class="form-control" />
     </div>
-    <div class="mb-3">
-      <label for="phone" class="form-label">Phone Number</label>
-      <input type="tel" id="phone" class="form-control" [(ngModel)]="phone" name="phone" required>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input id="email" name="email" type="email" [(ngModel)]="technician.Email" required class="form-control" />
     </div>
-    <div class="mb-3">
-      <label for="specialization" class="form-label">Specialization</label>
-      <input type="text" id="specialization" class="form-control" [(ngModel)]="specialization" name="specialization" required>
+
+    <div class="form-group">
+      <label for="mobile">Mobile:</label>
+      <input id="mobile" name="mobile" type="text" [(ngModel)]="technician.Mobile" required class="form-control" />
     </div>
-    <div class="text-center">
-      <button type="submit" class="btn btn-success px-4">Submit</button>
+
+    <div class="form-group">
+      <label for="specialization">Specialization:</label>
+      <select id="specialization" name="specialization" [(ngModel)]="technician.Specialization" required class="form-control">
+        <option *ngFor="let spec of specializations" [value]="spec">{{ spec }}</option>
+      </select>
     </div>
+
+    <div class="form-group">
+      <label for="address">Address:</label>
+      <input id="address" name="address" type="text" [(ngModel)]="technician.Address" required class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="experienceYears">Experience (in years):</label>
+      <input id="experienceYears" name="experienceYears" type="number" min="0" [(ngModel)]="technician.ExperienceYears" required class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!techForm.form.valid">Add Technician</button>
   </form>
 </div>

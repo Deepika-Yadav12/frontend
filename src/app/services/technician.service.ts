@@ -1,45 +1,32 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TechnicianService {
-  private storageKey = 'technicians'; // Key for localStorage
+  private baseUrl = 'https://localhost:7227/api/Admin';
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  // Fetch technicians from localStorage
-  private getTechniciansFromStorage(): any[] {
-    const storedData = localStorage.getItem(this.storageKey);
-    return storedData ? JSON.parse(storedData) : [];
+  // GET all technicians
+  getAllTechnicians(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/all-technicians`);
   }
 
-  // Save technicians back to localStorage
-  private saveTechniciansToStorage(technicians: any[]): void {
-    localStorage.setItem(this.storageKey, JSON.stringify(technicians));
+  // POST add technician
+  addTechnician(technicianData: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/add-technicians`, technicianData);
   }
 
-  // Add new technician to the list
-  addTechnician(tech: any): void {
-    const technicians = this.getTechniciansFromStorage();
-    tech.id = Date.now().toString();  // Ensure the ID is a string
-    technicians.push(tech);
-    this.saveTechniciansToStorage(technicians);
+  // PUT update technician
+  updateTechnician(loginId: number, technicianData: any): Observable<any> {
+    return this.http.put(`${this.baseUrl}/update-tech/${loginId}`, technicianData);
   }
 
-  // Update technician information
-  updateTechnician(updatedTech: any): void {
-    const technicians = this.getTechniciansFromStorage();
-    const index = technicians.findIndex(t => t.id === updatedTech.id);
-    if (index !== -1) {
-      technicians[index] = updatedTech;
-      this.saveTechniciansToStorage(technicians);
-    }
-  }
-
-  // Get all technicians, excluding deleted ones
-  getTechnicians(): any[] {
-    const technicians = this.getTechniciansFromStorage();
-    return technicians.filter(tech => !tech.deleted); // Exclude deleted technicians
+  // DELETE technician by loginId
+  deleteTechnician(loginId: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/delete-technician/${loginId}`);
   }
 }

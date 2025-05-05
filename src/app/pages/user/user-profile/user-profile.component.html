@@ -1,0 +1,33 @@
+
+<div class="user-profile-container">
+
+    <h2>Edit Your Profile</h2>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" formControlName="email" type="email" class="form-control" />
+        <div *ngIf="profileForm.get('email')?.invalid && profileForm.get('email')?.touched" class="error-message">
+          Please enter a valid email.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="mobile">Mobile</label>
+        <input id="mobile" formControlName="mobile" type="text" class="form-control" />
+        <div *ngIf="profileForm.get('mobile')?.invalid && profileForm.get('mobile')?.touched" class="error-message">
+          Please enter a valid 10-digit mobile number.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="address">Address</label>
+        <textarea id="address" formControlName="address" class="form-control"></textarea>
+        <div *ngIf="profileForm.get('address')?.invalid && profileForm.get('address')?.touched" class="error-message">
+          Please enter your address.
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="profileForm.invalid" class="btn btn-primary">Update Profile</button>
+    </form>
+  </div>
+  
